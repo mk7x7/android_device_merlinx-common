@@ -120,13 +120,6 @@ persist.vendor.mtk.volte.enable=1
 persist.vendor.vilte_support=1
 persist.vendor.viwifi_support=1
 
-# LMK
-ro.config.low_ram=false
-ro.lmk.critical_upgrade=true
-ro.lmk.upgrade_pressure=40
-ro.lmk.downgrade_pressure=60
-ro.lmk.kill_heaviest_task=false
-
 # MIUI
 sys.fp.miui.token=0
 persist.sys.mms.compact_enable=true
