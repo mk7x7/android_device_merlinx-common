@@ -1187,3 +1187,10 @@ on property:odm.audio.typec.status=*
 on property:sys.boot_completed=1
     # Only owner can acces this node
     chmod 440 /proc/net/unix
+
+    # Report max frequency to unity tasks
+    write /proc/sys/kernel/sched_lib_name "UnityMain,libunity.so" 
+    write /proc/sys/kernel/sched_lib_mask_force 255
+
+    # Enable suspend to RAM
+    write /sys/power/mem_sleep "deep"
