@@ -3,17 +3,7 @@
 /*
 ** Copyright 2009, The Android Open Source Project
 **
-** Licensed under the Apache License, Version 2.0 (the "License");
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
-**     http://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
-** limitations under the License.
+** SPDX-License-Identifier: Apache-2.0
 */
 -->
 
@@ -101,27 +91,10 @@
     <!-- Amount of time it takes for the light sensor to warm up in milliseconds.
          For this time after the screen turns on, the Power Manager
          will not debounce light sensor readings -->
-    <integer name="config_lightSensorWarmupTime">200</integer>
+    <integer name="config_lightSensorWarmupTime">1000</integer>
 
-     <!-- Fast brightness animation ramp rate in brightness units per second-->
-    <integer name="config_brightness_ramp_rate_fast">500</integer>
-
-     <!-- Slow brightness animation ramp rate in brightness units per second-->
-    <integer name="config_brightness_ramp_rate_slow">300</integer>
-
-     <!-- Minimum screen brightness setting allowed by power manager.
-         The user is forbidden from setting the brightness below this level.
-         Equivalent to 1/255. -->
-    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.0</item>
-
-     <!-- Maximum screen brightness allowed by the power manager.
-         The user is forbidden from setting the brightness above this level.  -->
-    <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
-
-    <!-- Default screen brightness setting
-         Must be in the range specified by minimum and maximum.
-         Equivalent to 67/255 (default for this device)    -->
-    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.26274509804</item>
+    <!-- Fast brightness animation ramp rate in brightness units per second-->
+    <integer translatable="false" name="config_brightness_ramp_rate_fast">400</integer>
 
     <!-- Array of light sensor lux values to define our levels for auto backlight brightness support.
          The N entries of this array define N + 1 control points as follows:
@@ -141,24 +114,20 @@
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
         <item>1</item>
-        <item>2</item>
-        <item>3</item>
         <item>4</item>
-        <item>8</item>
         <item>12</item>
         <item>20</item>
-        <item>33</item>
-        <item>55</item>
-        <item>90</item>
-        <item>148</item>
-        <item>245</item>
-        <item>403</item>
-        <item>665</item>
-        <item>1097</item>
-        <item>1808</item>
-        <item>2981</item>
+        <item>40</item>
+        <item>65</item>
+        <item>95</item>
+        <item>140</item>
+        <item>200</item>
+        <item>350</item>
+        <item>650</item>
+        <item>1300</item>
+        <item>2000</item>
         <item>3300</item>
-        <item>5000</item>
+        <item>6000</item>
     </integer-array>
 
     <!-- Array of desired screen brightness in nits corresponding to the lux values
@@ -173,77 +142,22 @@
          array. The brightness values must be non-negative and non-decreasing. This must be
          overridden in platform specific overlays -->
     <array name="config_autoBrightnessDisplayValuesNits">
-        <item>2.0482</item>
-        <item>2.543</item>
-        <item>3.0253</item>
-        <item>3.5077</item>
-        <item>4.0824</item>
-        <item>4.4748</item>
-        <item>5.08</item>
-        <item>6.4233</item>
-        <item>8.0848</item>
-        <item>11.6607</item>
-        <item>13.2347</item>
-        <item>15.0676</item>
-        <item>16.8302</item>
-        <item>18.4261</item>
-        <item>20.3103</item>
-        <item>21.9042</item>
-        <item>23.5456</item>
-        <item>25.2137</item>
-        <item>27.1769</item>
-        <item>28.9571</item>
-        <item>30.5244</item>
-        <item>32.3535</item>
-        <item>34.0867</item>
-        <item>42.366</item>
-        <item>51.1309</item>
-        <item>59.52</item>
-        <item>67.744</item>
-        <item>75.9738</item>
-        <item>84.6332</item>
-        <item>94.1525</item>
-        <item>102.2207</item>
-        <item>110.4878</item>
-        <item>117.0405</item>
-        <item>124.3733</item>
-        <item>130.9928</item>
-        <item>140.4247</item>
-        <item>149.3156</item>
-        <item>157.1995</item>
-        <item>165.3651</item>
-        <item>173.2726</item>
-        <item>181.4272</item>
-        <item>189.1402</item>
-        <item>197.5334</item>
-        <item>205.6301</item>
-        <item>213.9381</item>
-        <item>222.2769</item>
-        <item>230.0891</item>
-        <item>238.6084</item>
-        <item>246.5399</item>
-        <item>255.6544</item>
-        <item>263.6221</item>
-        <item>271.9324</item>
-        <item>279.1449</item>
-        <item>288.5736</item>
-        <item>297.6628</item>
-        <item>306.1899</item>
-        <item>314.4511</item>
-        <item>322.1404</item>
-        <item>330.969</item>
-        <item>338.2251</item>
-        <item>346.2251</item>
-        <item>354.567</item>
-        <item>370.799</item>
-        <item>413.1738</item>
-        <item>415.6397</item>
-        <item>417.264</item>
-        <item>419.264</item>
-        <item>421.264</item>
-        <item>424.646</item>
+        <item>2.0487</item>
+        <item>4.8394</item>
+        <item>17.2619</item>
+        <item>39.2619</item>
+        <item>50.671</item>
+        <item>92.3019</item>
+        <item>94.2512</item>
+        <item>98.37</item>
+        <item>100.152</item>
+        <item>105.297</item>
+        <item>120.385</item>
+        <item>142.064</item>
+        <item>226.5179</item>
+        <item>248.0267</item>
+        <item>353.2814</item>
         <item>427.6287</item>
-        <item>450.0</item>
     </array>
 
     <!-- An array of floats describing the screen brightness in nits corresponding to the backlight
@@ -322,8 +236,7 @@
         <item>419.264</item>
         <item>421.264</item>
         <item>424.646</item>
-        <item>427.6287</item> 
-        <item>450.0</item>
+        <item>427.6287</item>
     </array>
 
     <!-- An array describing the screen's backlight values corresponding to the brightness
@@ -537,15 +450,8 @@
       <item>/apex/com.android.media/javalib/updatable-media.jar</item>
       <item>/apex/com.android.art/javalib/core-oj.jar</item>
       <item>/apex/com.android.art/javalib/core-libart.jar</item>
-      <item>/system_ext/priv-app/SystemUI/SystemUI.apk</item>
+      <item>"/system_ext/priv-app/SystemUIGoogle/SystemUIGoogle.apk"</item>
       <item>/system/bin/surfaceflinger</item>
-      <item>/system/lib64/libRS.so</item>
-      <item>/system/lib64/libRSCpuRef.so</item>
-      <item>/system/lib64/libRSDriver.so</item>
-      <item>/system/lib64/libRS_internal.so</item>
-      <item>/system/lib64/libRScpp.so</item>
-      <item>/system/lib64/libbcinfo.so</item>
-      <item>/system/lib64/libblas.so</item>
     </string-array>
 
     <!-- List of biometric sensors on the device, in decreasing strength. Consumed by AuthService
@@ -556,33 +462,46 @@
       <item>0:2:15</item>
     </string-array>
 
-    <!-- Enable Zram writeback feature to allow unused pages in zram be written to flash. -->
-    <bool name="config_zramWriteback">true</bool>
+     <!-- ComponentName of a dream to show whenever the system would otherwise have
+         gone to sleep.  When the PowerManager is asked to go to sleep, it will instead
+         try to start this dream if possible.  The dream should typically call startDozing()
+         to put the display into a low power state and allow the application processor
+         to be suspended.  When the dream ends, the system will go to sleep as usual.
+         Specify the component name or an empty string if none.
+         Note that doze dreams are not subject to the same start conditions as ordinary dreams.
+         Doze dreams will run whenever the power manager is in a dozing state. -->
+    <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
 
-    <!-- These are system packages exempted from privacy indicator -->
-    <string-array name="config_locationExtraPackageNames" translatable="false">
-        <!-- ImsService -->
-        <item>com.mediatek.ims</item>
+    <!-- Pocket Lock -->
+    <bool name="config_pocketModeSupported">true</bool>
+     
+    <!-- Show battery cycle count -->
+    <bool name="config_show_battery_cycle_count" translatable="false">false</bool>
+
+    <!-- The max scale for the wallpaper when it's zoomed in -->
+    <item name="config_wallpaperMaxScale" format="float" type="dimen">1.00</item>
+
+    <!-- The list of components which should be automatically disabled for a specific device. -->
+    <string-array name="config_disabledComponents" translatable="false">
+        <item>com.google.android.gms/com.google.android.gms.nearby.messages.service.NearbyMessagesService</item>
+        <item>com.google.android.gms/com.google.android.gms.nearby.discovery.service.DiscoveryService</item>
     </string-array>
    
+    <!-- Whether to play turbulence noise after clicking the play button -->
+    <bool name="config_turbulenceNoise">false</bool>
+    
+    <!-- Flag indicating whether the surface flinger is inefficient
+         at performing a blur.  Used by parts of the UI to turn off
+         the blur effect where it isn't worth the performance hit.
+         As of Honeycomb, blurring is not supported anymore. -->
+    <bool name="config_sf_slowBlur">false</bool>
+
+    <!-- The amount to scale fullscreen snapshots for Overview and snapshot starting windows. -->
+    <item name="config_highResTaskSnapshotScale" format="float" type="dimen">0.7</item>
+
     <!-- Flag indicating whether the surface flinger has limited
          alpha compositing functionality in hardware.  If set, the window
          manager will disable alpha trasformation in animations where not
          strictly needed. -->
     <bool name="config_sf_limitedAlpha">true</bool>
-
-    <!-- The amount to scale fullscreen snapshots for Overview and snapshot starting windows. -->
-    <item name="config_highResTaskSnapshotScale" format="float" type="dimen">0.7</item>
-    
-    <!-- Determines whether the shell features all run on another thread. -->
-     <bool name="config_enableShellMainThread">true</bool>
-
-    <!-- The max scale for the wallpaper when it's zoomed in -->
-     <item name="config_wallpaperMaxScale" format="float" type="dimen">1.00</item>
-
-    <!-- The list of components which should be automatically disabled for a specific device. -->
-     <string-array name="config_disabledComponents" translatable="false">
-         <item>com.google.android.gms/com.google.android.gms.nearby.messages.service.NearbyMessagesService</item>
-         <item>com.google.android.gms/com.google.android.gms.nearby.discovery.service.DiscoveryService</item>
-     </string-array>
 </resources>
