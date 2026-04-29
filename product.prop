@@ -1,10 +1,6 @@
 # LMK
 ro.config.low_ram=false
-ro.lmk.critical_upgrade=false
-ro.lmk.upgrade_pressure=70
-ro.lmk.downgrade_pressure=85
+ro.lmk.critical_upgrade=true
+ro.lmk.upgrade_pressure=40
+ro.lmk.downgrade_pressure=60
 ro.lmk.kill_heaviest_task=false
-ro.lmk.thrashing_limit=65
-ro.lmk.thrashing_limit_decay=15
-ro.lmk.psi_complete_stall_ms=150
-ro.lmk.psi_partial_stall_ms=100
