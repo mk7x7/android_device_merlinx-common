@@ -209,6 +209,13 @@ import /vendor/build_${ro.boot.radio.multisim.config}_vendor.prop
 ro.vendor.mtk_shutdown_support=0
 init.userspace_reboot.is_supported=true
 
+# LMK
+ro.config.low_ram=false
+ro.lmk.critical_upgrade=true
+ro.lmk.upgrade_pressure=40
+ro.lmk.downgrade_pressure=60
+ro.lmk.kill_heaviest_task=false
+
 # SurfaceFlinger
 ro.surface_flinger.primary_display_orientation=ORIENTATION_0
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
